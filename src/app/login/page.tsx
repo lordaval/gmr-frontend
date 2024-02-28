@@ -1,13 +1,21 @@
 import Image from "next/image"
 import Form from "./Form"
 import { Metadata } from "next"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "GMR",
   description: "CMR do GMR Pesquisas",
 }
 
-export default function Login() {
+export default async function Login() {
+  const session = await getServerSession()
+
+  if (session) {
+    redirect("/")
+  }
+
   return (
     <main className="w-full h-screen bg-primary-blue bg-banner-gmr bg-center bg-cover">
       <div className="w-full h-full bg-primary-blue/80 flex justify-center items-center">

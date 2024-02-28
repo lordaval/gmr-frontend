@@ -4,6 +4,7 @@ import { API } from "@/utils/API"
 import { Loader2 } from "lucide-react"
 import { FormEvent, useState } from "react"
 import { useRouter } from "next/navigation"
+import { signIn } from "next-auth/react"
 
 export default function Form() {
   const router = useRouter()
@@ -13,11 +14,12 @@ export default function Form() {
     setIsSubmitting(true)
     if (validateData()) {
       try {
-        const res = await API.post("/login", {
+        const result = await signIn("credentials", {
           username,
           password,
+          redirect: true,
+          callbackUrl: "/",
         })
-        router.push("/")
       } catch {
         alert("Os dados inseridos são inválidos")
         setPassword("")
