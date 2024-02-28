@@ -15,7 +15,7 @@ export const options: NextAuthOptions = {
           type: "password",
         },
       },
-      async authorize(credentials) {
+      authorize: async (credentials) => {
         const res = await fetch(
           process.env.NEXT_PUBLIC_API_URL + "login" ||
             "http://localhost:3333/login",
@@ -27,10 +27,6 @@ export const options: NextAuthOptions = {
             },
           }
         )
-
-        if (res.status !== 200) {
-          return null
-        }
 
         const data = await res.json()
 
