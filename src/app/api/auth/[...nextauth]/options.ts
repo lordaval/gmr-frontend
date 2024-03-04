@@ -31,7 +31,12 @@ export const options: NextAuthOptions = {
         const data = await res.json()
 
         if (res.ok && data.code === "AUTHORIZED") {
-          return data.user
+          console.log(data.user)
+          return data.user as {
+            id: string
+            username: string
+            email: string
+          }
         } else {
           return null
         }

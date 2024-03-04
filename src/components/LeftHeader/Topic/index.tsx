@@ -17,7 +17,7 @@ const Topic = ({ title, links, icon }: TopicProps) => {
   }
 
   return (
-    <div className="w-full mx-auto flex flex-col bg-gray-200">
+    <div className="w-full mx-auto flex flex-col bg-gray-50">
       <div className="border-b border-b-black/20">
         <div
           className={`flex items-center justify-between px-4 py-2 cursor-pointer ${

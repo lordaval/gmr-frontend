@@ -1,5 +1,6 @@
 import { User } from "lucide-react"
 import Image from "next/image"
+import LogoutButton from "./LogoutButton"
 
 export default function Header() {
   return (
@@ -12,10 +13,7 @@ export default function Header() {
           height={104}
           className="w-28"
         />
-        <div className="mr-3 flex flex-col justify-center items-center h-full hover:opacity-40 transition-colors">
-          <User size={32} />
-          {/* <h1 className="text-lg font-medium">Rodrigo</h1> */}
-        </div>
+        <LogoutButton />
       </div>
     </header>
   )
